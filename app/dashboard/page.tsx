@@ -185,7 +185,7 @@ export default function Dashboard() {
     calculateTotalEmployees(chartData?.["Total Workforce by Gender"] ?? []) || 3000;
 
   const trainingByGenderData =
-    chartData?.["Average Training Hours per Employee"]?.breakdown_by_gender?.length > 0
+    chartData?.["Average Training Hours per Employee"]?.breakdown_by_gender?.length ?? 0 > 0
       ? chartData?.["Average Training Hours per Employee"].breakdown_by_gender
       : defaultTrainingByGenderData;
 
