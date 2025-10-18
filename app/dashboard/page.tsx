@@ -85,7 +85,7 @@ export default function Dashboard() {
   const uploadFile = useMutation({
     mutationFn: async (formData: FormData) => {
 
-      const res = await fetch("http://localhost:8000/upload", {
+      const res = await fetch("https://triple-i-backend.onrender.com/upload", {
         method: "POST",
         body: formData
       });
