@@ -1,24 +1,22 @@
 "use client"
 
-import type React from "react"
 
-import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import z from "zod"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { useSignIn } from "@clerk/nextjs"
+import { Input } from "@/components/ui/input"
+import { useAuth, useSignIn } from "@clerk/nextjs"
 import {
   EmailCodeFactor,
   SignInFirstFactor,
-} from "@clerk/types";
-import { toast } from "sonner";
-import { useRouter } from "next/navigation";
+} from "@clerk/types"
+import { zodResolver } from "@hookform/resolvers/zod"
 import { Loader } from "lucide-react"
+import { useRouter } from "next/navigation"
+import { useEffect, useState } from "react"
+import { useForm } from "react-hook-form"
+import { toast } from "sonner"
+import z from "zod"
 
 const signInSchema = z.object({
   email: z.email({ error: "Please enter a valid email address" }),
@@ -27,10 +25,8 @@ const signInSchema = z.object({
 type SignInData = z.infer<typeof signInSchema>;
 
 export default function Home() {
-  const { isLoaded, signIn, setActive } = useSignIn();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const {isSignedIn} = useAuth();
+  const { isLoaded, signIn } = useSignIn();
   const router = useRouter();
 
   const signInForm = useForm<SignInData>({
@@ -77,6 +73,9 @@ export default function Home() {
     }
   };
 
+  useEffect(()=>{
+    if(isSignedIn) router.push("/dashboard");
+  },[isSignedIn]);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
@@ -120,7 +119,7 @@ export default function Home() {
             </CardContent>
             <CardFooter className="flex flex-col space-y-4">
               <Button type="submit" className="w-full h-11 font-medium" disabled={signInForm.formState.isSubmitting}>
-                {isLoading ?
+                {signInForm.formState.isSubmitting ?
                   <>
                     <Loader className="mr-2 animate-spin" />
                     Signing in...

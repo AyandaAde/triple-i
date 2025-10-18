@@ -1,0 +1,129 @@
+{
+  "Total Workforce by Gender": [
+    {
+      "gender": "Male",
+      "employee_count": 430
+    },
+    {
+      "gender": "Female",
+      "employee_count": 379
+    },
+    {
+      "gender": "Non-binary",
+      "employee_count": 26
+    },
+    {
+      "gender": "Other",
+      "employee_count": 358
+    }
+  ],
+  "Percentage of Employees with Disabilities": {
+    "overall_percentage": 39.56,
+    "total_employees": 1193,
+    "total_employees_with_disabilities": 472,
+    "breakdown_by_gender": [
+      {
+        "gender": "Male",
+        "total_employees": 430,
+        "employees_with_disabilities": 170,
+        "percentage": 36.02
+      },
+      {
+        "gender": "Female",
+        "total_employees": 379,
+        "employees_with_disabilities": 150,
+        "percentage": 31.78
+      },
+      {
+        "gender": "Non-binary",
+        "total_employees": 26,
+        "employees_with_disabilities": 10,
+        "percentage": 2.12
+      },
+      {
+        "gender": "Other",
+        "total_employees": 358,
+        "employees_with_disabilities": 142,
+        "percentage": 30.08
+      }
+    ]
+  },
+  "Employee Turnover Rate": {
+    "overall_turnover_rate": 13.16,
+    "total_employees": 1193,
+    "total_employees_departed": 157
+  },
+  "Average Training Hours per Employee": {
+    "overall_average_hours": 2.67,
+    "total_employees": 1193,
+    "total_training_hours": 3190,
+    "breakdown_by_gender": [
+      {
+        "gender": "Male",
+        "total_employees": 430,
+        "total_training_hours": 1149.79,
+        "average_hours_per_employee": 2.67
+      },
+      {
+        "gender": "Female",
+        "total_employees": 379,
+        "total_training_hours": 1013.42,
+        "average_hours_per_employee": 2.67
+      },
+      {
+        "gender": "Non-binary",
+        "total_employees": 26,
+        "total_training_hours": 69.52,
+        "average_hours_per_employee": 2.67
+      },
+      {
+        "gender": "Other",
+        "total_employees": 358,
+        "total_training_hours": 957.27,
+        "average_hours_per_employee": 2.67
+      }
+    ]
+  },
+  "Workplace Injury Rate": {
+    "overall_injury_rate": 0.0285,
+    "total_employees": 1193,
+    "total_injuries": 34
+  },
+  "Workforce by Gender by Organizational Unit": [
+    {
+      "OrganizationalUnitID": 1,
+      "OrganizationalUnitName": "HR",
+      "genders": [
+        {
+          "gender": "Female",
+          "employee_count": 379
+        },
+        {
+          "gender": "Male",
+          "employee_count": 430
+        },
+        {
+          "gender": "Non-binary",
+          "employee_count": 26
+        },
+        {
+          "gender": "Other",
+          "employee_count": 358
+        },
+        {
+          "gender": "Transgender",
+          "employee_count": 0
+        }
+      ]
+    }
+  ],
+  "Employee Turnover Rate by Organizational Unit": [
+    {
+      "OrganizationalUnitID": 1,
+      "OrganizationalUnitName": "HR",
+      "total_employees": 1193,
+      "total_employees_departed": 157,
+      "turnover_rate": 13.16
+    }
+  ]
+}
