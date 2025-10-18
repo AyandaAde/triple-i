@@ -97,16 +97,15 @@ export default function Dashboard() {
   });
 
   const downloadReport = useMutation({
-    mutationFn: async () => {
+    mutationFn: async (type: string) => {
 
-      const { data } = await axios.post("http://localhost:8000/report", {
+      const { data } = await axios.post("https://triple-i-backend.onrender.com/report", {
         kpi_data: chartData,
         company_id: 1,
         year: new Date().getFullYear(),
-        company_name: "Company 1"
+        company_name: "Company 1",
+        type,
       });
-
-      console.error("Data", data);
       return data;
     },
   });
@@ -167,9 +166,15 @@ export default function Dashboard() {
       return
     }
 
-    downloadReport.mutate(undefined, {
+    downloadReport.mutate(type, {
       onSuccess: async (data) => {
-        handleDownloadReport(data, type);
+        if (data.file) {
+          handleDownloadReport(data, type);
+          return;
+        };
+        toast.error("Error", {
+          description: "No file returned. Please try again."
+        });
       },
       onError: (error) => {
         console.error("Error downloading reports", error);

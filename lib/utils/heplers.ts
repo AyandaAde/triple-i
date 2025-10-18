@@ -17,21 +17,19 @@ export async function handleDownloadReport(data: any, type: string) {
         return new Blob([byteArray], { type: mimeType });
     }
 
+    const { file } = data;
+
     if (type === "pdf") {
-        if (data?.files?.pdf) {
-            const { filename, base64 } = data.files.pdf;
-            const pdfBlob = base64ToBlob(base64, "application/pdf");
-            saveAs(pdfBlob, filename);
-        }
+        const { name, base64 } = file;
+        const pdfBlob = base64ToBlob(base64, "application/pdf");
+        saveAs(pdfBlob, name);
     } else if (type === "docx") {
-        if (data?.files?.docx) {
-            const { filename, base64 } = data.files.docx;
-            const docxBlob = base64ToBlob(
-                base64,
-                "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-            );
-            saveAs(docxBlob, filename);
-        }
+        const { name, base64 } = file;
+        const docxBlob = base64ToBlob(
+            base64,
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        );
+        saveAs(docxBlob, name);
     }
     return
 }
