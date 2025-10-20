@@ -25,7 +25,7 @@ const signInSchema = z.object({
 type SignInData = z.infer<typeof signInSchema>;
 
 export default function Home() {
-  const {isSignedIn} = useAuth();
+  const { isSignedIn } = useAuth();
   const { isLoaded, signIn } = useSignIn();
   const router = useRouter();
 
@@ -73,9 +73,9 @@ export default function Home() {
     }
   };
 
-  useEffect(()=>{
-    if(isSignedIn) router.push("/dashboard");
-  },[isSignedIn]);
+  useEffect(() => {
+    if (isSignedIn) router.push("/dashboard");
+  }, [isSignedIn]);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background p-4">

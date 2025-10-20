@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "https://triple-i-backend.onrender.com/upload",
+      "schedule": "* * * * *"
+    }
+  ]
+}
