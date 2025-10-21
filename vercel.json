@@ -1,7 +1,7 @@
 {
   "crons": [
     {
-      "path": "https://triple-i-backend.onrender.com/upload",
+      "path": "/api/crons/backend-wake-up",
       "schedule": "* * * * *"
     }
   ]
